@@ -30,7 +30,7 @@ class Example {
 			// test
 			// http://8.219.160.234:8080
 		Config config = new Config("your key", "your server base url ");
-		System.out.println(listForm.execute(config));
+		System.out.println(listForm.submit(config));
 	}
 }
 ```
