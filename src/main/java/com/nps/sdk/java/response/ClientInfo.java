@@ -5,9 +5,9 @@ import lombok.Data;
 /**
  * @author chenchao
  */
-@SuppressWarnings("AlibabaLowerCamelCaseVariableNaming")
+@SuppressWarnings({"AlibabaLowerCamelCaseVariableNaming", "SpellCheckingInspection"})
 @Data
-public class ClientInfo {
+public class ClientInfo implements BaseResponse {
 
 	private ClientCnf Cnf;
 	private int Id;
@@ -31,4 +31,25 @@ public class ClientInfo {
 	private boolean ConfigConnAllow;
 	private int MaxTunnelNum;
 	private String Version;
+
+	@Data
+	public static class ClientRate {
+		private int NowRate;
+	}
+
+	@Data
+	public static class ClientFlow {
+
+		private int ExportFlow;
+		private long InletFlow;
+		private int FlowLimit;
+	}
+
+	@Data
+	public static class ClientCnf {
+		private String U;
+		private String P;
+		private boolean Compress;
+		private boolean Crypt;
+	}
 }

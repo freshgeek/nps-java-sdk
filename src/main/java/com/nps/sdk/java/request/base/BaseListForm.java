@@ -9,7 +9,7 @@ import lombok.Setter;
  * @author chenchao
  */
 @Getter
-public abstract class ListForm extends BaseForm {
+public abstract class BaseListForm extends BaseForm {
 
 	/**
 	 * 当前分页 0开始
@@ -19,7 +19,7 @@ public abstract class ListForm extends BaseForm {
 
 	int limit;
 
-	public ListForm(String url, Method method, int offset, int limit) {
+	public BaseListForm(String url, Method method, int offset, int limit) {
 		super(url, method);
 		this.offset = offset;
 		this.limit = limit;

@@ -7,7 +7,7 @@ import lombok.Data;
  * @author chenchao
  */
 @Data
-public class Result<T> {
+public class Result<T> implements BaseResponse {
 	private int code;
 	private T data;
 }

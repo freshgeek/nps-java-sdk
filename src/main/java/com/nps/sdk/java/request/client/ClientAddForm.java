@@ -2,7 +2,10 @@ package com.nps.sdk.java.request.client;
 
 
 import cn.hutool.http.Method;
+import com.alibaba.fastjson.TypeReference;
 import com.nps.sdk.java.request.base.BaseForm;
+import com.nps.sdk.java.request.config.Config;
+import com.nps.sdk.java.response.StatusResult;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -63,8 +66,8 @@ public class ClientAddForm extends BaseForm {
 	Long max_tunnel;
 
 
-	public ClientAddForm(String url, Method method, String remark, String u, String p, long limit, String vkey, Integer config_conn_allow, Integer compress, Integer crypt, Long rate_limit, Long flow_limit, Long max_conn, Long max_tunnel) {
-		super(url, method);
+	public ClientAddForm(String remark, String u, String p, long limit, String vkey, Integer config_conn_allow, Integer compress, Integer crypt, Long rate_limit, Long flow_limit, Long max_conn, Long max_tunnel) {
+		super("/client/add/", Method.POST);
 		this.remark = remark;
 		this.u = u;
 		this.p = p;
@@ -83,4 +86,10 @@ public class ClientAddForm extends BaseForm {
 		super("/client/add/", Method.POST);
 	}
 
+
+	@Override
+	public StatusResult submit(Config config) {
+		return execute(config, new TypeReference<StatusResult>() {
+		});
+	}
 }

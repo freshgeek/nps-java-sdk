@@ -8,26 +8,26 @@ import lombok.Getter;
 /**
  * @author chenchao
  */
-@SuppressWarnings({"AlibabaLowerCamelCaseVariableNaming", "unused"})
+@SuppressWarnings({"AlibabaLowerCamelCaseVariableNaming", "unused", "SpellCheckingInspection"})
 @Getter
 public class ClientEditForm extends ClientAddForm {
-	Long id;
+	Integer id;
 
-	public ClientEditForm(String url, Method method, String remark, String u, String p, long limit, String vkey, Integer config_conn_allow, Integer compress, Integer crypt, Long rate_limit, Long flow_limit, Long max_conn, Long max_tunnel, Long id) {
-		super(url, method, remark, u, p, limit, vkey, config_conn_allow, compress, crypt, rate_limit, flow_limit, max_conn, max_tunnel);
-		this.setUrl("/client/edit/");
-		this.setMethod(Method.POST);
+	public ClientEditForm(String remark, String u, String p, long limit, String vkey, Integer config_conn_allow, Integer compress, Integer crypt, Long rate_limit, Long flow_limit, Long max_conn, Long max_tunnel, Integer id) {
+		super(remark, u, p, limit, vkey, config_conn_allow, compress, crypt, rate_limit, flow_limit, max_conn, max_tunnel);
+		this.url = "/client/edit/";
+		this.method = Method.POST;
 		this.id = id;
 	}
 
-	public ClientEditForm(Long id) {
-		this.setUrl("/client/edit/");
-		this.setMethod(Method.POST);
+	public ClientEditForm(Integer id) {
+		this.url = "/client/edit/";
+		this.method = Method.POST;
 		this.id = id;
 	}
 
 	public ClientEditForm(ClientInfo info) {
-		this(Long.valueOf(info.getId()));
+		this(info.getId());
 		this.setRemark(info.getRemark());
 		this.setU(info.getCnf().getU());
 		this.setP(info.getCnf().getP());

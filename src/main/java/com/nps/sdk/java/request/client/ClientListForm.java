@@ -2,7 +2,10 @@ package com.nps.sdk.java.request.client;
 
 
 import cn.hutool.http.Method;
-import com.nps.sdk.java.request.base.ListForm;
+import com.alibaba.fastjson.TypeReference;
+import com.nps.sdk.java.request.base.BaseListForm;
+import com.nps.sdk.java.request.config.Config;
+import com.nps.sdk.java.response.ClientListResult;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,7 +15,7 @@ import lombok.ToString;
  */
 @ToString
 @Getter
-public class ClientListForm extends ListForm {
+public class ClientListForm extends BaseListForm {
 	@Setter
 	String search;
 	String order;
@@ -21,5 +24,12 @@ public class ClientListForm extends ListForm {
 		super("/client/list/", Method.POST, offset, limit);
 		this.search = search;
 		this.order = order;
+	}
+
+
+	@Override
+	public ClientListResult submit(Config config) {
+		return super.execute(config, new TypeReference<ClientListResult>() {
+		});
 	}
 }

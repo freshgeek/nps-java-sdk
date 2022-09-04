@@ -4,13 +4,16 @@ package com.nps.sdk.java.request.base;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.TypeReference;
 import com.nps.sdk.java.request.config.Config;
-import lombok.Data;
+import com.nps.sdk.java.response.BaseResponse;
+import lombok.Getter;
+import lombok.ToString;
 
 /**
  * @author chenchao
  */
 @SuppressWarnings({"AlibabaLowerCamelCaseVariableNaming", "unused"})
-@Data
+@ToString
+@Getter
 public abstract class BaseForm {
 	protected String url;
 	protected Method method;
@@ -20,12 +23,15 @@ public abstract class BaseForm {
 		this.method = method;
 	}
 
-	public String execute(Config config) {
-		return execute(config, new TypeReference<String>() {
-		});
-	}
+	/**
+	 * 服务配置
+	 *
+	 * @param config 服务配置
+	 * @return 返回参数
+	 */
+	public abstract BaseResponse submit(Config config);
 
-	public <T> T execute(Config config, TypeReference<T> type) {
+	protected <T> T execute(Config config, TypeReference<T> type) {
 		return BaseExecutor.execute(this, config, type);
 	}
 

@@ -12,7 +12,7 @@ maven version is same with nps release .
 ```xml
 
 <denpendence>
-    <groupId>com.nps.sdk</groupId>
+    <groupId>io.github.freshgeek</groupId>
     <artifactId>nps-java-sdk</artifactId>
     <version>0.26.10-SNAPSHOT</version>
 </denpendence>
