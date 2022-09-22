@@ -18,7 +18,7 @@ public class ClientListResult implements BaseResponse {
 	private List<ClientListResultRow> rows;
 
 	@Data
-	static class ClientListResultRow {
+	public static class ClientListResultRow {
 
 		private boolean Status;
 		private boolean ConfigConnAllow;
@@ -41,7 +41,7 @@ public class ClientListResult implements BaseResponse {
 		private int MaxTunnelNum;
 
 		@Data
-		static class Cnf {
+		public static class Cnf {
 
 			private String P;
 			private boolean Compress;
@@ -50,7 +50,7 @@ public class ClientListResult implements BaseResponse {
 		}
 
 		@Data
-		static class Flow {
+		public static class Flow {
 
 			private int ExportFlow;
 			private long InletFlow;
@@ -58,7 +58,7 @@ public class ClientListResult implements BaseResponse {
 		}
 
 		@Data
-		static class Rate {
+		public static class Rate {
 
 			private int NowRate;
 		}

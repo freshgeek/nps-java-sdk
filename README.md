@@ -8,14 +8,14 @@ maven version is same with nps release .
 
 ## use
 
-1. add maven repo 
+1. add maven repo
 ```xml
 
-<denpendence>
+<dependency>
     <groupId>io.github.freshgeek</groupId>
     <artifactId>nps-java-sdk</artifactId>
     <version>0.26.10-SNAPSHOT</version>
-</denpendence>
+</dependency>
 
 ```
 
